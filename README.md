@@ -79,6 +79,6 @@ This python file contains many generic functions used in all the notebooks
 
 - **vec2Text.py**
 This python file contains some functions for the sentence transformers model
-
-
+<br>
+<br>
 18-Oct-2022 Serge Retkowsky | serge.retkowsky@microsoft.com | https://www.linkedin.com/in/serger/
