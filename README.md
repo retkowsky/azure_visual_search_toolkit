@@ -1,4 +1,4 @@
-# Visual Search with Azure Cognitive Search, Sentence Transformers, Azure Computer Vision and bar code/QR code detection
+# Visual Search toolkit with Azure Cognitive Search, Sentence Transformers, Azure Computer Vision and bar code/QR code detection
 
 <img src="logo.jpg">
 <br>
