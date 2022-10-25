@@ -1,6 +1,6 @@
-# Generic python functions
+# Standard python utilities functions
 # Serge Retkowsky (serge.retkowsky@microsoft.com)
-# 18-Oct-2022
+# 20-Oct-2022
 
 
 # Multiple imports
@@ -11,7 +11,6 @@ import glob
 import humanize
 import json
 import logging
-from math import *
 import numpy as np
 import os
 import pathlib
@@ -32,11 +31,13 @@ from azure.cognitiveservices.vision.computervision.models import OperationStatus
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
 from matplotlib import pyplot as plt
+from math import *
 from pyzbar.pyzbar import decode
+
 
 # Reading config.ini file to retrieve credentials
 config = configparser.ConfigParser()
-config_file = 'azureconfig.ini'
+config_file = 'azureservices.py'
 config.read(config_file)
 
 # Azure CV Credentials
@@ -53,12 +54,13 @@ headers = {
     'Content-Type': 'application/octet-stream'
 }
 
+
 # Functions definitions
 
 
 def check_python():
     """
-    Check Python version
+    Display and check Python version
     """
     try:
         print("You are using Python:", sys.version)
@@ -91,7 +93,9 @@ def display_multiple_images(mylist,
                             hspace=0.5,
                             wspace=0.05,
                             axis=False):
-
+    """
+    Display multiples images
+    """
     plt.figure(figsize=(15, 10))
 
     idx = 1
@@ -148,7 +152,7 @@ def display_random_images(mydir,
 def get_barcode_text(IMAGEFILE):
     """
     Get Barcode informations from a file using pyzbar. 
-    Works with barcodes or QR Codes
+    Works with barcodes or QR Codes.
     """
     try:
         if not os.path.exists(IMAGEFILE):
@@ -171,7 +175,8 @@ def get_barcode_text(IMAGEFILE):
 
 
 def get_image_azure_cvresults(IMAGEFILE):
-    """ImageAnalysisInStream.
+    """
+    ImageAnalysisInStream.
     This will analyze an image from a stream and return main colors, 
     tags and caption using Azure CV
     """

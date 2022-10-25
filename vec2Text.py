@@ -1,5 +1,5 @@
 # Vec2Text functions
-# 18-Oct-2022
+# 20-Oct-2022
 
 
 # Multiple imports
@@ -34,7 +34,7 @@ def calculate_dimensions(file, model):
 
 def calculate_wcss(data):
     """
-    Calculate K Means
+    Clustering K Means algorithm from sci-kit learn
     """
     data = np.array(data).reshape(-1, 1)
     wcss = []

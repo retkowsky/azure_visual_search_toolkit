@@ -1,5 +1,5 @@
 # Azure Cognitive Search python functions
-# 18-Oct-2022
+# 20-Oct-2022
 
 
 # Multiple imports
@@ -28,8 +28,9 @@ from azure.search.documents.indexes.models import (
 )
 from IPython.display import Image
 
+
 # Azure Cognitive Search connection
-config_file = 'azureconfig.ini'
+config_file = 'azureservices.py'
 
 # Azure Cognitive Search Index name
 index_name = "demo-retail"
@@ -40,6 +41,7 @@ config.read(config_file)
 acs_key = config.get('AzureCognitiveSearch', 'key')
 acs_endpoint = config.get('AzureCognitiveSearch', 'endpoint')
 servicename = config.get('AzureCognitiveSearch', 'servicename')
+
 
 # Azure Cognitive Search admin and search clients
 adminClient = SearchIndexClient(endpoint=acs_endpoint,
@@ -257,7 +259,7 @@ def global_search_img_list(filelist):
             idx += 1
 
     except:
-        print("[Error]")
+        print("[Error] Cannot do a global search")
 
 
 def open_text_query(mytext, view=False, maxlimit=10):
@@ -358,10 +360,13 @@ def upload_documents(documents):
     """
     try:
         result = searchClient.upload_documents(documents=documents)
+        print("Uploading new document...")
         print("Upload of new document succeeded: {}".format(
             result[0].succeeded))
+        print("Done\n")
 
     except Exception as ex:
+        print("[Error] Cannot load the documents into the index")
         print(ex.message)
 
 
@@ -375,6 +380,7 @@ def vec_image_to_text(imagefile, centers, model):
     for d in range(len(curVec)):
         vecText += vec2Text.convert_field_num_to_string(d) + str(
             vec2Text.closest(centers[d], curVec[d])) + ' '
+
     return vecText
 
 
