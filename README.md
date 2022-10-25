@@ -2,7 +2,8 @@
 
 <img src="logo.jpg">
 <br>
-## 1. Description
+
+## Description
 The goal of this is **Azure AI asset is to enable search over Text and Images using Azure Cognitive Search**. The technique was inspired by a research article which show how to **convert vectors (embeddings) to text which allows the Cognitive Search service to leverage the inverted index to quickly find the most relevant items**. For this reason, any model that will convert an object to a vector can be leveraged if the number of dimensions in the resulting vector is less than 3,000. It also allows users to leverage existing pretrained or fine-tuned models.<br><br>
 
 This technique has shown to be incredibly effective and easy to implement. We are using **Sentence Transformers, which is an OpenAI clip model wrapper**. We need to embed all our existing catalog of images. Then the objects embedding are converted into a set of fake terms and all the results are stored into an Azure Cognitive Search index for handling all the search requests.
@@ -14,7 +15,7 @@ The goal of this asset is to be able to use the inverted index within Azure Cogn
 
 <a href="https://github.com/retkowsky/azure_visual_search_toolkit/blob/main/Visual%20Search%20with%20Azure%20Doc.pdf">Toolkit Document<a>
 
-## 2. Process
+## Process
 
 - We have here a collection of catalog images (466 images).
 - For each of these images, we will embed them using Sentence Transformers.  Sentence Transformer can be used to map images and texts to the same vector space. As model, we use the OpenAI CLIP Model which was trained on a large set of images and image alt texts.
@@ -29,23 +30,23 @@ The goal of this asset is to be able to use the inverted index within Azure Cogn
 Field images are available in the field images directory (number of images=53)
 
 
-## 3. Azure products documentation
+## Azure products documentation
 - https://azure.microsoft.com/en-us/products/search/ 
 - https://azure.microsoft.com/en-us/products/cognitive-services/computer-vision/#overview 
 - https://learn.microsoft.com/en-us/azure/cognitive-services/Computer-vision/how-to/call-read-api 
 - https://zbar.sourceforge.net/ 
 - https://github.com/liamca/vector-search
 
-## 4. Research article
+## Research article
 https://www.researchgate.net/publication/305910626_Large_Scale_Indexing_and_Searching_Deep_Convolutional_Neural_Network_Features
     
-## 5. Directories
+## Directories
 - **images**: We have two directories (catalog images, field images)
 - **model**: Directory to save the clusters of the model
 - **results**: Directory to save some results
 - **test**: Directory that contains some testing images
 
-## 6. Python notebooks
+## Python notebooks
 
 ### 0. Settings.ipynb
 Notebook that contains the link to the images and the importation process of the python required libraries
@@ -53,7 +54,7 @@ Notebook that contains the link to the images and the importation process of the
 ### 1. Catalog images exploration.ipynb
 This notebook will display some catalog and field images
 
-### 2.OpenAI Clip and VecText Clusters.ipynb
+### 2. OpenAI Clip and VecText Clusters.ipynb
 This notebook will explain what sentence transformers is and will generate the clusters
 This notebook analyzes a set of existing images to determine a set of "cluster centers" that will be used to determine which "fake words" are generated for a vector
 This notebook will take a test set of files (testSamplesToTest) and determine the optimal way to cluster vectors into fake words that will be indexed into Azure Cognitive Search
@@ -73,7 +74,7 @@ This notebook will show how to ingest all the information into an Azure Cognitiv
 ### 7. Calling Azure Cognitive Search.ipynb
 We can now test the index using some images similarity visual search or free text queries using azure Cognitive Search.
 
-## 7. Python files
+## Python files
 
 - **azureCognitiveSearch.py**
 This python file contains many functions to manage and use Azure Cognitive Search
@@ -85,4 +86,4 @@ This python file contains many generic functions used in all the notebooks
 This python file contains some functions for the sentence transformers model
 <br>
 <br>
-18-Oct-2022 Serge Retkowsky | serge.retkowsky@microsoft.com | https://www.linkedin.com/in/serger/
+25-Oct-2022 Serge Retkowsky | serge.retkowsky@microsoft.com | https://www.linkedin.com/in/serger/
