@@ -10,6 +10,8 @@ We can **enrich the Azure Cognitive Search index by using extracted text from th
 
 The goal of this asset is to be able to use the inverted index within Azure Cognitive Search to be able to quickly find vectors stored in the search index that are like a vector provided as part of a search query and/or using any AI extracted information (text, dominant colors, …). Unlike techniques like cosine similarity which are slow to process large numbers of items, this leverages an inverted index which enables much more data to be indexed and searched.<br>
 
+<a href"https://github.com/retkowsky/azure_visual_search_toolkit/blob/main/Visual%20Search%20with%20Azure%20Doc.pdf">Toolkit Document<a>
+
 ## 2. Process
 
 - We have here a collection of catalog images (466 images).
